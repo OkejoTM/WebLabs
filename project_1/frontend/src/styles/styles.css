@@ -1,0 +1,700 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+.light {
+  --bg-color: #f5f5f5; 
+  --text-color: #222; 
+  --border-color: #ddd;
+  --primary-bg-color: #0b0909; 
+  --primary-hover-bg-color: #c4e90b;
+  --secondary-bg-color: transparent;
+  --secondary-hover-color: #b0b0b0;
+  --secondary-color: #444; 
+  --danger-bg-color: #d32f2f;
+  --danger-hover-bg-color: #b71c1c;
+  --danger-color: #d9534f;
+  --done-color: #28a745;
+  --done-hover-color: #218838;
+  --progress-color: #ffc107;
+  --card-bg-color: #e3e7ec;
+  --scrollbar-bg-color: #c6c6c6;
+  --scrollbar-thumb-color: #7c7c7c;
+  --navbar-color: #000;
+}
+
+.dark {
+  --bg-color: #2c2c2c;
+  --text-color: #f5f5f5;
+  --border-color: #444;
+  --primary-bg-color: #007bff;
+  --primary-hover-bg-color: #c4e90b;
+  --secondary-bg-color: transparent;
+  --secondary-hover-color: #666;
+  --secondary-color: #f5f5f5;
+  --danger-bg-color: #dc3545;
+  --danger-hover-bg-color: #c82333;
+  --danger-color: #fa3846;
+  --done-color: #20fa4c;
+  --done-hover-color: #03791c;
+  --progress-color: #ffc62a;
+  --card-bg-color: #424242;
+  --scrollbar-bg-color: #3a3a3a;
+  --scrollbar-thumb-color: #1e1e1e;
+  --navbar-color: #fff;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.5rem; /* Сделаем заголовок больше */
+  margin-bottom: 1rem;
+}
+
+.btn {
+height: 2.75rem; /* Сделаем кнопки выше */
+color: #fff;
+font-size: 1.1rem; /* Чуть увеличим текст */
+border-radius: 0.35rem; /* Немного округлим углы */
+border: none;
+cursor: pointer;
+padding: 0.5rem 1.25rem; /* Увеличим отступы для баланса */
+transition: background-color 0.2s ease;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 0.75rem;
+}
+
+.btn-primary {
+background-color: var(--primary-bg-color);
+}
+
+.btn-back{
+  background-color: red;
+}
+
+.btn-primary:hover {
+background-color: var(--primary-hover-bg-color);
+}
+/* Переключение темы */
+
+.theme-toggle__button {
+    width: 2rem;
+    height: 2rem;
+    background-color: transparent;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    position: relative;
+}
+
+.theme-toggle__button svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease 0s;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 1.1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.lucide-sun,
+.lucide-moon {
+  opacity: 1;
+  transition: opacity 0.3s ease 0s;
+  width: 2rem;
+  height: 2rem;
+}
+
+.light .lucide-sun {
+  opacity: 0;
+}
+
+.dark .lucide-moon {
+  opacity: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+  height: 100vh;
+}
+
+.content {
+  height: 100%;
+}
+
+
+  .card {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--card-bg-color);
+    border-radius: 0.5rem; /* Более плавное закругление */
+    padding: 1.25rem;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .card-body {
+    width: 100%;
+  }
+  
+  .card:hover {
+    outline: 2px solid var(--secondary-hover-color);
+    transform: translateY(-2px); /* Добавим эффект нажатия */
+    transition: transform 0.2s;
+  }
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem 0;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-size: 1.5rem; /* Увеличим размер заголовков карточек */
+  font-weight: bold;
+}
+
+.card-icon {
+  margin-bottom: auto;
+}
+
+.card-content {
+  opacity: 0.8;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.card-point-name {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.card-header.game-header__bought .card-title {
+  text-decoration: line-through;
+}
+
+span.boughted {
+  color: #28a745;
+}
+
+span.unboughted {
+  color: #ffbf00;
+}
+/* Заголовок страницы */
+
+.page-title {
+  margin-top: 0;
+}
+
+/* Добавление игры */
+.input-error input {
+    border: 2px solid red;
+}
+
+.input_error::after {
+  content: "Please enter a valid value";
+  color: var(--danger-color);
+  font-size: 0.8rem;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+}
+
+.games-add {
+  margin-top: auto;
+}
+
+.modal-close{
+  background-color: transparent;
+  border:0;
+  cursor: pointer;
+}
+
+.modal-close :hover{
+  width:33px;
+  height:33px;  
+}
+
+.form-games-add {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.games-list {
+  display: flex;
+  flex-direction: row;
+  gap: 0 1rem;
+}
+
+.games-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem 0;
+}
+
+.filters-block {
+  min-width: 25%;
+  max-width: 25%;
+}
+
+.filters-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem 0;
+}
+
+.games__list {
+  flex: 1 0 auto;
+  overflow-y: auto; 
+  max-height: 80vh;
+}
+
+.games__list::-webkit-scrollbar {
+  width: 12px; /* Увеличим ширину скролла */
+}
+.games__list::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-bg-color);
+  border-radius: 10px;
+}
+.games__list::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb-color);
+  border-radius: 12px; /* Более плавное округление */
+}
+
+.games-add {
+  flex: 0 0 auto;
+  margin-top: auto;
+}
+
+.games-title-input {
+    font-size: larger;
+    width: 60%;
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    outline: none;
+    border: 2px solid #ccc;
+    border-radius: 0.2rem;
+    padding: 0.3rem;
+    font-family: inherit;
+}
+
+.games-title-input::placeholder {
+  color: var(--text-color);
+  opacity: 0.75;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-flex;
+}
+
+.dropdown-content-wrapper {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  z-index: 1;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.1s ease 0s;
+  --num-items: 1;
+  --item-height: 2.5rem;
+  --gap: 0.5rem;
+  --border: 2px;
+  --content-height: calc(var(--num-items) * var(--item-height) + (var(--num-items)+1) * var(--gap) + 2 * var(--border));
+}
+
+.dropdown-content {
+  background-color: var(--bg-color);
+  border: var(--border) solid var(--border-color);
+  border-radius: 0.25rem;
+  padding: var(--gap);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.dropdown-open .dropdown-content-wrapper {
+  height: var(--content-height);
+}
+
+.description-textarea {
+  max-height: 20vh;
+  height: 20vh;
+  max-width: 300px;
+  width: 300px;
+  min-height: 5vh;
+  min-width: 100px;
+}
+
+.price-input {  
+  
+}
+
+textarea {
+  font-size: large;
+}
+
+input {
+  font-size: large;
+}
+
+#dropdown-genres-button, #dropdown-description-button {
+  height: 100%;
+}
+
+.description-textarea, .genres-input {
+  background-color: var(--card-bg-color);
+  color: var(--text-color);
+  outline: none;
+  border: 2px solid #ccc;
+  border-radius: 0.2rem;
+  padding: 0.3rem;
+  font-family: inherit;
+}
+
+.description-textarea::placeholder, .genres-input::placeholder {
+  color: var(--text-color);
+  opacity: 0.75;
+}
+
+/* Удаление */
+.btn-icon {
+  margin: 0;
+  padding: 0;
+}
+
+.btn-icon-danger:hover {
+  color: var(--danger-hover-bg-color);
+}
+
+.btn-danger {
+  background-color: var(--danger-bg-color);
+}
+
+.btn-danger:hover {
+  background-color: var(--danger-hover-bg-color);
+}
+
+.btn-green {
+  background-color: var(--done-color);
+}
+
+.btn-green:hover {
+  background-color: var(--done-hover-color);
+}
+
+.form-remove-confirm {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.modal {
+	position: fixed;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	justify-self: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+}
+
+.modal-content {
+	background-color: var(--bg-color);
+	border-radius: 0.25rem;
+	padding: 1rem;
+	width: 100%;
+	max-width: min-content;
+	min-width: 400px;
+	max-height: 90vh;
+	overflow-y: auto;
+	opacity: 0;
+	margin: 0 auto;
+	margin-top: 5vh;
+	transition: opacity 0.3s ease;
+}
+
+.modal-open,
+.modal-open .modal-content {
+	opacity: 1;
+	z-index: 1;
+}
+
+/* Редактирование */
+
+.btn-icon-edit {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.btn-icon-edit:hover {
+  color: var(--progress-color)
+}
+
+.card-icons {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Форма редактирования */
+
+.form-game-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem 0;
+}
+
+.form-label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.edit-form-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 4rem;
+}
+
+.btn-primary#cancel-edit:hover {
+  background-color: var(--danger-hover-bg-color);
+}
+
+.btn-primary#save-edit:hover {
+  background-color: var(--done-hover-color);
+}
+
+.input, .textarea {
+  font-size: larger;
+  background-color: var(--card-bg-color);
+  color: var(--text-color);
+  outline: none;
+  border: 2px solid #ccc;
+  border-radius: 0.2rem;
+  padding: 0.3rem;
+  font-family: inherit;
+}
+
+.input::placeholder, .textarea::placeholder {
+  color: var(--text-color);
+  opacity: 0.5;
+}
+
+/* Фильтры */
+
+.filters-label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.filters-bought {
+  font-size: large;
+  background-color: var(--card-bg-color);
+  color: var(--text-color);
+  outline: none;
+  border: 2px solid #ccc;
+  border-radius: 0.2rem;
+  padding: 0.3rem;
+  font-family: inherit;
+}
+
+.filter-price{
+  font-size: large;
+  background-color: var(--card-bg-color);
+  color: var(--text-color);
+  outline: none;
+  border: 2px solid #ccc;
+  border-radius: 0.2rem;
+  padding: 0.3rem;
+  font-family: inherit;
+  width:200px;
+}
+
+.link-category-games{
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.checkbox-label {
+  font-size: large;
+}
+
+#apply-filters-button:hover {
+  background-color: var(--done-hover-color);
+}
+
+#reset-filters-button:hover {
+  background-color: var(--danger-hover-bg-color);
+}
+
+#attributes-container {
+	margin-top: 1rem;
+}
+
+.attributes-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	gap: 0.5rem;
+	max-height: 200px;
+}
+
+
+
+.attribute-item {
+	display: flex;
+	flex-direction: column;
+	padding: 0.25rem;
+	border-radius: 0.25rem;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.attribute-name {
+	font-weight: bold;
+}
+
+.attribute-value {
+	opacity: 0.8;
+}
+
+.header-nav ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.header-nav ul a{
+  text-decoration: underline 2px;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--navbar-color);
+}
+
+.header-nav ul li{
+  list-style-type: none;
+}
+
+/* register and login */
+
+/* Общие стили для логина и регистрации */
+
+/* Контейнер для обеих страниц */
+.auth-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок */
+.auth-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Ошибка */
+.auth-error {
+  color: red;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Общие стили для формы */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Группы полей */
+.auth-form-group {
+  margin-bottom: 15px;
+}
+
+/* Метки */
+.auth-label {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Входные поля */
+.auth-input {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.2s;
+}
+
+.auth-input:focus {
+  border-color: #0070f3;
+  outline: none;
+}
+
+/* Кнопки */
+.auth-button {
+  padding: 10px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #0070f3;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.auth-button:hover {
+  background-color: #005bb5;
+}
